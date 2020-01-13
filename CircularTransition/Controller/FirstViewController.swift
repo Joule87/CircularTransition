@@ -20,8 +20,13 @@ class FirstViewController: UIViewController {
         menuButton.layer.cornerRadius = menuButton.frame.size.width / 2
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+         navigationController?.navigationBar.barTintColor = UIColor.orange
+        tabBarController?.tabBar.barTintColor = UIColor.orange
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let sendVC = segue.destination as? SecondViewController {
+        if let sendVC = segue.destination as? UINavigationController {
             sendVC.transitioningDelegate = self
             sendVC.modalPresentationStyle = .custom
         }
